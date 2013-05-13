@@ -1,0 +1,25 @@
+<?php defined('SYSPATH') or die('No direct script access.');
+
+class Controller_Sitemap extends Controller_Template {
+
+	public function before(){
+		parent::before();       
+	}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public function action_index(){    
+//header ("Content-Type:text/xml");  
+$this->request->headers['Content-Type'] = 'text/xml';
+$this->request->response = $data;
+$post = "array()";
+$this->template->content= View::factory('blog/index')
+		->set('post',$post);
+		
+    	} // end action index
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function after(){     
+		parent::after();
+	}
+} // end Blog Show
+
